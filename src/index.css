@@ -1,0 +1,225 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Alice in Borderland Theme - Dark survival game aesthetic */
+
+@layer base {
+  :root {
+    --background: 240 10% 4%;
+    --foreground: 0 0% 95%;
+
+    --card: 240 10% 8%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 240 10% 8%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 0 0% 90%;
+    --primary-foreground: 240 10% 4%;
+
+    --secondary: 240 5% 15%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 240 5% 18%;
+    --muted-foreground: 240 5% 55%;
+
+    --accent: 340 80% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 5% 20%;
+    --input: 240 5% 20%;
+    --ring: 340 80% 55%;
+
+    --radius: 0.75rem;
+
+    --sidebar-background: 240 10% 6%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 340 80% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 5% 15%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 240 5% 20%;
+    --sidebar-ring: 340 80% 55%;
+  }
+
+  .dark {
+    --background: 240 10% 4%;
+    --foreground: 0 0% 95%;
+
+    --card: 240 10% 8%;
+    --card-foreground: 0 0% 95%;
+
+    --popover: 240 10% 8%;
+    --popover-foreground: 0 0% 95%;
+
+    --primary: 0 0% 90%;
+    --primary-foreground: 240 10% 4%;
+
+    --secondary: 240 5% 15%;
+    --secondary-foreground: 0 0% 95%;
+
+    --muted: 240 5% 18%;
+    --muted-foreground: 240 5% 55%;
+
+    --accent: 340 80% 55%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 72% 51%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 240 5% 20%;
+    --input: 240 5% 20%;
+    --ring: 340 80% 55%;
+
+    --sidebar-background: 240 10% 6%;
+    --sidebar-foreground: 0 0% 95%;
+    --sidebar-primary: 340 80% 55%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 5% 15%;
+    --sidebar-accent-foreground: 0 0% 95%;
+    --sidebar-border: 240 5% 20%;
+    --sidebar-ring: 340 80% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--background));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--muted));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--muted-foreground));
+}
+
+/* Neon glow effects */
+.neon-text {
+  text-shadow: 
+    0 0 5px currentColor,
+    0 0 10px currentColor,
+    0 0 20px currentColor;
+}
+
+.neon-box {
+  box-shadow: 
+    0 0 5px currentColor,
+    0 0 10px currentColor,
+    inset 0 0 5px currentColor;
+}
+
+/* Card suit colors */
+.suit-spade { color: hsl(210 10% 80%); }
+.suit-heart { color: hsl(350 80% 60%); }
+.suit-diamond { color: hsl(190 80% 50%); }
+.suit-club { color: hsl(270 60% 60%); }
+
+/* Animations */
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.5; }
+  50% { opacity: 1; }
+}
+
+@keyframes neon-flicker {
+  0%, 100% { opacity: 1; }
+  41.99% { opacity: 1; }
+  42% { opacity: 0.8; }
+  43% { opacity: 1; }
+  45.99% { opacity: 1; }
+  46% { opacity: 0.9; }
+  47% { opacity: 1; }
+  49.99% { opacity: 1; }
+  50% { opacity: 0.95; }
+  51% { opacity: 1; }
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes scan-line {
+  0% { transform: translateY(-100%); }
+  100% { transform: translateY(100vh); }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-neon-flicker {
+  animation: neon-flicker 3s ease-in-out infinite;
+}
+
+.animate-glitch {
+  animation: glitch 0.3s ease-in-out infinite;
+}
+
+/* Enhanced glow effects for Alice in Borderland theme */
+.text-glow-red {
+  text-shadow: 
+    0 0 5px rgba(239, 68, 68, 0.8),
+    0 0 10px rgba(239, 68, 68, 0.6),
+    0 0 20px rgba(239, 68, 68, 0.4),
+    0 0 40px rgba(239, 68, 68, 0.2);
+}
+
+.text-glow-cyan {
+  text-shadow: 
+    0 0 5px rgba(6, 182, 212, 0.8),
+    0 0 10px rgba(6, 182, 212, 0.6),
+    0 0 20px rgba(6, 182, 212, 0.4),
+    0 0 40px rgba(6, 182, 212, 0.2);
+}
+
+.box-glow-red {
+  box-shadow: 
+    0 0 10px rgba(239, 68, 68, 0.5),
+    0 0 20px rgba(239, 68, 68, 0.3),
+    0 0 40px rgba(239, 68, 68, 0.1),
+    inset 0 0 10px rgba(239, 68, 68, 0.1);
+}
+
+.box-glow-cyan {
+  box-shadow: 
+    0 0 10px rgba(6, 182, 212, 0.5),
+    0 0 20px rgba(6, 182, 212, 0.3),
+    0 0 40px rgba(6, 182, 212, 0.1),
+    inset 0 0 10px rgba(6, 182, 212, 0.1);
+}
